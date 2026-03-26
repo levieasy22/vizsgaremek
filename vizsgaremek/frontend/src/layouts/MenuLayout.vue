@@ -19,7 +19,9 @@ export default {
           <li class="nav-item">
             <RouterLink class="nav-link" to="/adoption">Örökbefogadas</RouterLink>
           </li>
-
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/register">Regisztráció</RouterLink>
+          </li>
         </ul>
       </div>
     </div>
