@@ -1,11 +1,18 @@
-<script setup></script>
+<script >
+import MenuLayout from "@/layouts/MenuLayout.vue";
+export default {
+  name: "App",
+  components: {MenuLayout}
+}
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="bg-light min-vh-100">
+    <MenuLayout/>
+    <main class="container">
+      <RouterView/>
+    </main>
+  </div>
 </template>
 
 <style scoped></style>
