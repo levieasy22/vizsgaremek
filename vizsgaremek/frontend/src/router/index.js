@@ -1,189 +1,216 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
-const PublicLayout = () => import('@/layouts/PublicLayout.vue');
-const AuthLayout = () => import('@/layouts/AuthLayout.vue');
-const MenuLayout = () => import('@/layouts/MenuLayout.vue');
-
-const routes = [
-    {
-        path: '/',
-        component: PublicLayout,
-        children: [
-            {
-                path: '',
-                name: 'home',
-                component: () => import('@/views/public/HomeView.vue'),
-                meta: {title: 'Home'}
-            },
-            {
-                path: 'animals',
-                children: [
-                    {
-                        path: '',
-                        name: 'animals',
-                        component: () => import('@/views/public/AnimalListView.vue'),
-                        meta: {title: 'Animals'}
-                    },
-                    {
-                        path: ':id',
-                        name: 'animal-details',
-                        component: () => import('@/views/public/AnimalDetailsView.vue'),
-                        meta: {title: 'Animal Details'},
-                        /* KELLENI FOG
-                        beforeEnter: async (to) => {
-                            if (!isNumeric(to.params.id)) return {name: 'not-found'};
-                            const product = await fetchProductById(to.params.id);
-                            if (!product) return {name: 'not-found'};
-                            to.meta.prefetched = {product};
-                            return true;
-                        }
-                        */
-                    }
-                ]
-            },
-            {
-                path: 'adoptions',
-                children: [
-                    {
-                        path: '',
-                        name: 'adoptions',
-                        component: () => import('@/views/public/AdoptionView.vue'),
-                        meta: {title: 'Adoptions'}
-                    },
-                    {
-                        path: ':id',
-                        name: 'adoption-details',
-                        component: () => import('@/views/public/AdoptionDetailsView.vue'),
-                        meta: {title: 'Adoption Details'},
-                        /* KELLENI FOG
-                        beforeEnter: async (to) => {
-                            if (!isNumeric(to.params.id)) return {name: 'not-found'};
-                            const product = await fetchProductById(to.params.id);
-                            if (!product) return {name: 'not-found'};
-                            to.meta.prefetched = {product};
-                            return true;
-                        }
-                        */
-                    }
-                ]
-            },
-        ],
-    },
-    {
-        path: '/auth',
-        component: AuthLayout,
-        children: [
-            {
-                path: 'login',
-                name: 'login',
-                component: () => import('@/views/auth/LoginView.vue'),
-                meta: {title: 'Login'},
-            },
-            {
-                path: 'register',
-                name: 'register',
-                component: () => import('@/views/auth/RegisterView.vue'),
-                meta: {title: 'Register'}
+const router = createRouter({
+    history: createWebHistory(import.meta.env.BASE_URL),
+    routes: [
+        {
+            path: '/',
+            name: 'home',
+            component: () => import('@/views/public/HomeView.vue'),
+            redirect: '/homeview',
+            meta: {title: 'Kezdőlap'}
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: () => import('@/views/public/AboutView.vue'),
+            meta:{
+                title: "Rólunk"
             }
-        ]
-    },
-    {
-        path: '/app',
-        component: MenuLayout,
-        meta: {requiresAuth: true},
-        children: [
-            {
-                path: '',
-                redirect: {name: 'overview'},
+        },
+        {
+            path: '/adoption',
+            name: 'adoption',
+            component: () => import('@/views/public/AdoptionView.vue'),
+            meta:{
+                title: "Örökbefogadás"
             },
-            {
-                path: 'overview',
-                name: 'overview',
-                component: () => import('@/views/app/admin/OverviewView.vue'),
-                meta: {title: 'Overview', requiresAuth: true},
+            children: [
+                {
+                    path: '/adoption/dogs',
+                    name: 'dogs',
+                    component: () => import('@/views/public/DogListView.vue'),
+                    meta:{
+                        title: "Kutyák"
+                    },
+                    children: [
+                        {
+                            path: '/adoption/dogs/dog-adoption-details',
+                            name: 'dog adoption details',
+                            component: () => import('@/views/public/DogDetailsView.vue'),
+                            meta:{
+                                title: "Kutya részletei"
+                            },
+                        },
+                    ],
+                },
+                {
+                    path: '/adoption/cats',
+                    name: 'cats',
+                    component: () => import('@/views/public/CatListView.vue'),
+                    meta:{
+                        title: "Macskák"
+                    },
+                    children: [
+                        {
+                            path: '/adoption/cats/adoption-details',
+                            name: 'cat adoption details',
+                            component: () => import('@/views/public/CatDetailsView.vue'),
+                            meta:{
+                                title: "Macska részletei"
+                            },
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            path: '/contact',
+            name: 'contact',
+            component: () => import('@/views/public/ContactView.vue'),
+            meta:{
+                title: "Kapcsolat"
+            }
+        },
+        {
+            path: '/auth',
+            name: 'authentication',
+            component: () => import('@/views/auth/LoginView.vue'),
+            redirect: '/loginview',
+            meta: {title: 'Bejelentkezés'},
+            children: [
+                {
+                    path: '',
+                    name: 'login',
+                    component: () => import('@/views/auth/LoginView.vue'),
+                    meta:{
+                        title: "Bejelentkezés"
+                    }
+                },
+                {
+                    path: '/auth/register',
+                    name: 'register',
+                    component: () => import('@/views/auth/RegisterView.vue'),
+                    meta:{
+                        title: "Regisztráció",
+                    }
+                },
+            ]
+        },
+        {
+            path: '/not-authorized',
+            name: 'not-authorized',
+            component: () => import('@/views/errors/NotAuthorizedView.vue'),
+            meta: {
+                title: 'Nem jogosult'
+            }
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'not-found',
+            component: () => import('@/views/errors/NotFoundView.vue'),
+            meta: {
+                title: 'Nem található'
+            }
+        },
+        {
+            path: '/admin',
+            name: 'admin',
+            component: () => import('@/views/app/admin/OverviewView.vue'),
+            meta: {
+                title: 'Adminisztráció',
+                requiresAuth: true,
+                roles: ['admin']
             },
-            {
-                path: 'profile',
-                name: 'profile',
-                component: () => import('@/views/app/admin/ProfileView.vue'),
-                meta: {title: 'Profile', requiresAuth: true},
-            },
-            {
-                path: 'settings',
-                name: 'settings',
-                component: () => import('@/views/app/admin/SettingsView.vue'),
-                meta: {title: 'Settings', requiresAuth: true},
-            },
-            {
-                path: 'appointments',
-                name: 'appointments',
-                component: () => import('@/views/app/admin/AppointmentsView.vue'),
-                meta: {title: 'Appointments', requiresAuth: true},
-            },
-            {
-                path: 'adoptions',
-                name: 'adoptions',
-                component: () => import('@/views/app/admin/AdoptionsView.vue'),
-                meta: {title: 'Adoptions', requiresAuth: true},
-                /* KELLENI FOG
-                beforeEnter: (to) => {
-                    if (!isOrderId(to.params.orderId)) return {name: 'not-found'};
-                    return true;
+            children: [
+                {
+                    path: '',
+                    name: 'admin-overview',
+                    component: () => import('@/views/app/admin/OverviewView.vue'),
+                    meta: {
+                        title: 'Áttekintés'
+                    }
+                },
+                {
+                    path: 'adoptions',
+                    name: 'admin-adoptions',
+                    component: () => import('@/views/app/admin/AdoptionsView.vue'),
+                    meta: {
+                        title: 'Örökbefogadások'
+                    }
+                },
+                {
+                    path: 'appointments',
+                    name: 'admin-appointments',
+                    component: () => import('@/views/app/admin/AppointmentsView.vue'),
+                    meta: {
+                        title: 'Időpontfoglalások'
+                    }
+                },
+                {
+                    path: 'profile',
+                    name: 'admin-profile',
+                    component: () => import('@/views/app/admin/ProfileView.vue'),
+                    meta: {
+                        title: 'Profil'
+                    }
+                },
+                {
+                    path: 'settings',
+                    name: 'admin-settings',
+                    component: () => import('@/views/app/admin/SettingsView.vue'),
+                    meta: {
+                        title: 'Beállítások'
+                    }
+                },
+                {
+                    path: 'manage',
+                    name: 'admin-manage',
+                    component: () => import('@/views/app/admin/AdminPanelView/AdoptionManageView.vue'), // Assuming a main manage view, adjust if needed
+                    meta: {
+                        title: 'Kezelés'
+                    },
+                    children: [
+                        {
+                            path: 'adoptions',
+                            name: 'manage-adoptions',
+                            component: () => import('@/views/app/admin/AdminPanelView/AdoptionManageView.vue'),
+                            meta: {
+                                title: 'Örökbefogadások Kezelése'
+                            }
+                        },
+                        {
+                            path: 'animals',
+                            name: 'manage-animals',
+                            component: () => import('@/views/app/admin/AdminPanelView/AnimalManageView.vue'),
+                            meta: {
+                                title: 'Állatok Kezelése'
+                            }
+                        },
+                        {
+                            path: 'appointments',
+                            name: 'manage-appointments',
+                            component: () => import('@/views/app/admin/AdminPanelView/AppointmentsManageView.vue'),
+                            meta: {
+                                title: 'Időpontfoglalások Kezelése'
+                            }
+                        },
+                        {
+                            path: 'users',
+                            name: 'manage-users',
+                            component: () => import('@/views/app/admin/AdminPanelView/UserManageView.vue'),
+                            meta: {
+                                title: 'Felhasználók Kezelése'
+                            }
+                        }
+                    ]
                 }
-                */
-            },
-            {
-                path: 'admin',
-                meta: {requiresAuth: true, roles: ['admin']},
-                children: [
-                    {
-                        path: '',
-                        redirect: {name: 'admin-users'},
-                    },
-                    {
-                        path: 'users',
-                        name: 'admin-users',
-                        component: () => import('@/views/app/admin/AdminUsersView.vue'),
-                        meta: {title: 'Admin - Users', requiresAuth: true, roles: ['admin']},
-                    },
-                    {
-                        path: 'users/:userId',
-                        name: 'admin-user-details',
-                        component: () => import('@/views/app/admin/AdminUserDetailsView.vue'),
-                        meta: {title: 'Admin - User Details', requiresAuth: true, roles: ['admin']},
-                        beforeEnter: async (to) => {
-                            if (!isNumeric(to.params.userId)) return {name: 'not-found'};
-                            const user = await fetchAdminUserById(to.params.userId);
-                            if (!user) return {name: 'not-found'};
-                            to.meta.prefetched = {user};
-                            return true;
-                        }
-                    },
-                    {
-                        path: 'audit-log',
-                        name: 'admin-audit',
-                        component: () => import('@/views/app/admin/AdminAuditLogView.vue'),
-                        meta: {title: 'Audit Log', requiresAuth: true, roles: ['admin']},
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        path: '/403',
-        name: 'not-authorized',
-        component: () => import('@/views/errors/NotAuthorizedView.vue'),
-        meta: {title: 'Not Authorized'},
-    },
-    {
-        path: '/:pathMatch(.*)*',
-        name: 'not-found',
-        component: () => import('@/views/errors/NotFoundView.vue'),
-        meta: {title: 'Not Found'},
-    }
-]
+            ]
+        }
+    ],
+})
 
-
+/*
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes,
@@ -193,7 +220,9 @@ const router = createRouter({
         return {top: 0};
     }
 })
+*/
 
+/*
 router.beforeEach(to =>{
     const {isAuthenticated, user} = useAuth();
     document.title = to.meta?.title ? `${to.meta.title} - RouterApp` : 'RouterApp';
@@ -208,5 +237,5 @@ router.beforeEach(to =>{
     }
     return true;
 })
-
+*/
 export default router

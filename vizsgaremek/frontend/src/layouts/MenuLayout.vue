@@ -1,6 +1,11 @@
 <script>
+import { RouterLink } from 'vue-router'
+
 export default {
-  name: "MenuLayout"
+  name: "MenuLayout",
+  components: {
+    RouterLink
+  }
 }
 </script>
 
@@ -17,10 +22,16 @@ export default {
             <RouterLink class="nav-link active" aria-current="page" to="/animals">Állatok</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/adoption">Örökbefogadas</RouterLink>
+            <RouterLink class="nav-link" to="/adoptions">Örökbefogadás</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/register">Regisztráció</RouterLink>
+            <RouterLink class="nav-link" to="/about">Rólunk</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/contact">Kapcsolat</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/auth/login">Bejelentkezés</RouterLink>
           </li>
         </ul>
       </div>
