@@ -1,64 +1,43 @@
 <script>
+import {RouterLink} from "vue-router";
+
 export default {
-  name: "AnimalDetailsView"
+  name: "CatListView",
+  components: {
+    RouterLink
+  }
 }
 </script>
 
 <template>
-  <div class="card shadow-sm border-0">
-    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-      <h2 class="h4 mb-0">Állat adatlap</h2>
+  <section>
+    <div class="container py-4">
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="../../imgs/macska.jpg" class="card-img-top object-fit-cover" style="height: 220px; object-fit: cover;" />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div>
+                <h4 class="card-title fw-bold mb-2">név</h4>
+                <div class="mb-2 d-flex align-items-center gap-2">
+                  <i class="bi bi-calendar3" style="font-size: 1.2rem;"></i>
+                  <span>születés</span>
+                </div>
+                <div class="mb-3 d-flex align-items-center gap-2">
+                  <i class="bi bi-gender-male"></i>
+                  <i class="bi bi-gender-female"></i>
+                  <span>nem</span>
+                </div>
+              </div>
+              <button class="btn btn-outline-primary mt-auto w-100">
+                További részletek <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
-      <div class="row mb-2">
-        <div class="col-sm-4 fw-bold">Azonosító:</div>
-        <div class="col-sm-8">{{ allatok.id }}</div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-sm-4 fw-bold">Faj azonosító:</div>
-        <div class="col-sm-8">{{ allatok.faj_id }}</div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-sm-4 fw-bold">Név:</div>
-        <div class="col-sm-8">{{ allatok.nev }}</div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-sm-4 fw-bold">Életkor</div>
-        <div class="col-sm-8">{{ allatok.eletkor }}</div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-sm-4 fw-bold">Nem:</div>
-        <div class="col-sm-8">{{ allatok.nem }}</div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-sm-4 fw-bold">Örökbefogadási státusz:</div>
-        <div class="col-sm-8">{{ allatok.orokbefogadasi_statusz }}</div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-sm-4 fw-bold">Max sebesség</div>
-        <div class="col-sm-8">{{ ship.maxSpeed }} csomó</div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-sm-4 fw-bold">Személyzet:</div>
-        <div class="col-sm-8">{{ ship.crew }}</div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-sm-4 fw-bold">Utasok száma:</div>
-        <div class="col-sm-8">{{ ship.passengers }}</div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-sm-4 fw-bold">Hossz:</div>
-        <div class="col-sm-8">{{ ship.length }}</div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-sm-4 fw-bold">Státusz:</div>
-        <div class="col-sm-8"><span class="badge bg-secondary">{{ ship.status }}</span></div>
-      </div>
-      <hr>
-      <h3 class="h6">Leírás</h3>
-      <p class="mb-0">{{ ship.description }}</p>
-    </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>

@@ -18,11 +18,14 @@ export default {
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <RouterLink class="nav-link active" aria-current="page" to="/animals">Állatok</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink class="nav-link" to="/adoptions">Örökbefogadás</RouterLink>
+          <li class="nav-item dropdown">
+            <RouterLink class="nav-link dropdown-toggle" :to="{name: 'adoption'}" role="button" aria-expanded="false">
+              Örökbefogadás
+            </RouterLink>
+            <ul class="dropdown-menu">
+              <li><RouterLink class="dropdown-item" :to="{name: 'dogs'}">Kutyák</RouterLink></li>
+              <li><RouterLink class="dropdown-item" :to="{name: 'cats'}">Macskák</RouterLink></li>
+            </ul>
           </li>
           <li class="nav-item">
             <RouterLink class="nav-link" to="/about">Rólunk</RouterLink>
@@ -40,5 +43,7 @@ export default {
 </template>
 
 <style scoped>
-
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
 </style>

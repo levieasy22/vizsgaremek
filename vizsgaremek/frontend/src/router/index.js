@@ -24,43 +24,41 @@ const router = createRouter({
             component: () => import('@/views/public/AdoptionView.vue'),
             meta:{
                 title: "Örökbefogadás"
+            }
+        },
+        {
+            path: '/dogs',
+            name: 'dogs',
+            component: () => import('@/views/public/DogListView.vue'),
+            meta:{
+                title: "Kutyák"
             },
             children: [
                 {
-                    path: '/adoption/dogs',
-                    name: 'dogs',
-                    component: () => import('@/views/public/DogListView.vue'),
+                    path: 'details/:id',
+                    name: 'dog-details',
+                    component: () => import('@/views/public/DogDetailsView.vue'),
                     meta:{
-                        title: "Kutyák"
+                        title: "Kutya részletei"
                     },
-                    children: [
-                        {
-                            path: '/adoption/dogs/dog-adoption-details',
-                            name: 'dog adoption details',
-                            component: () => import('@/views/public/DogDetailsView.vue'),
-                            meta:{
-                                title: "Kutya részletei"
-                            },
-                        },
-                    ],
                 },
+            ],
+        },
+        {
+            path: '/cats',
+            name: 'cats',
+            component: () => import('@/views/public/CatListView.vue'),
+            meta:{
+                title: "Macskák"
+            },
+            children: [
                 {
-                    path: '/adoption/cats',
-                    name: 'cats',
-                    component: () => import('@/views/public/CatListView.vue'),
+                    path: 'details/:id',
+                    name: 'cat-details',
+                    component: () => import('@/views/public/CatDetailsView.vue'),
                     meta:{
-                        title: "Macskák"
+                        title: "Macska részletei"
                     },
-                    children: [
-                        {
-                            path: '/adoption/cats/adoption-details',
-                            name: 'cat adoption details',
-                            component: () => import('@/views/public/CatDetailsView.vue'),
-                            meta:{
-                                title: "Macska részletei"
-                            },
-                        },
-                    ],
                 },
             ],
         },
