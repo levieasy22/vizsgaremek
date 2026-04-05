@@ -71,29 +71,18 @@ const router = createRouter({
             }
         },
         {
-            path: '/auth',
-            name: 'authentication',
+            path: '/auth/login',
+            name: 'login',
             component: () => import('@/views/auth/LoginView.vue'),
-            redirect: '/loginview',
             meta: {title: 'Bejelentkezés'},
-            children: [
-                {
-                    path: '',
-                    name: 'login',
-                    component: () => import('@/views/auth/LoginView.vue'),
-                    meta:{
-                        title: "Bejelentkezés"
-                    }
-                },
-                {
-                    path: '/auth/register',
-                    name: 'register',
-                    component: () => import('@/views/auth/RegisterView.vue'),
-                    meta:{
-                        title: "Regisztráció",
-                    }
-                },
-            ]
+        },
+        {
+            path: '/auth/register',
+            name: 'register',
+            component: () => import('@/views/auth/RegisterView.vue'),
+            meta:{
+                title: "Regisztráció",
+            }
         },
         {
             path: '/not-authorized',
@@ -204,7 +193,15 @@ const router = createRouter({
                     ]
                 }
             ]
-        }
+        },
+        {
+            path: '/privacy-policy',
+            name: 'privacy policy',
+            component: () => import('@/policies/PrivacyPolicy.vue'),
+            meta: {
+                title: 'Adatvédelmi irányelvek'
+            }
+        },
     ],
 })
 
