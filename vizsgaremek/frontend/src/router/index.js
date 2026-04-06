@@ -7,7 +7,6 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: () => import('@/views/public/HomeView.vue'),
-            redirect: '/homeview',
             meta: {title: 'Kezdőlap'}
         },
         {

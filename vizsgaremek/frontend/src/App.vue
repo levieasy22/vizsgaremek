@@ -1,8 +1,9 @@
 <script >
 import MenuLayout from "@/layouts/MenuLayout.vue";
+import FooterLayout from "@/layouts/FooterLayout.vue";
 export default {
   name: "App",
-  components: {MenuLayout}
+  components: {FooterLayout, MenuLayout}
 }
 </script>
 
@@ -12,6 +13,7 @@ export default {
     <main class="container">
       <RouterView/>
     </main>
+    <FooterLayout/>
   </div>
 </template>
 

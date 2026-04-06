@@ -10,10 +10,12 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-white shadow">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <img src="../../imgs/mancs_allatmenhely_logo.png" class="card-img-top object-fit-cover" style="height: 220px; object-fit: cover;" />
+        <RouterLink class="navbar-brand" to="/">
+          <img src="@/imgs/mancs_allatmenhely_logo.png" alt="Logo" style="max-height: 90px; width: auto;"/>
+        </RouterLink>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <RouterLink class="nav-link" to="/">Kezdőlap</RouterLink>
@@ -45,5 +47,8 @@ export default {
 <style scoped>
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+.navbar {
+  --bs-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 </style>
