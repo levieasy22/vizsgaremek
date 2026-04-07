@@ -194,11 +194,35 @@ const router = createRouter({
             ]
         },
         {
-            path: '/privacy-policy',
+            path: '/policies/privacy',
             name: 'privacy policy',
             component: () => import('@/policies/PrivacyPolicy.vue'),
             meta: {
                 title: 'Adatvédelmi irányelvek'
+            }
+        },
+        {
+            path: '/policies/aszf',
+            name: 'aszf policy',
+            component: () => import('@/policies/AszfPolicy.vue'),
+            meta: {
+                title: 'Általános Szerződési Feltételek'
+            }
+        },
+        {
+            path: '/policies/cookie',
+            name: 'cookie policy',
+            component: () => import('@/policies/CookiePolicy.vue'),
+            meta: {
+                title: 'Cookie irányelvek'
+            }
+        },
+        {
+            path: '/policies/impressum',
+            name: 'impressum',
+            component: () => import('@/policies/ImpressumPolicy.vue'),
+            meta: {
+                title: 'Impresszum'
             }
         },
     ],

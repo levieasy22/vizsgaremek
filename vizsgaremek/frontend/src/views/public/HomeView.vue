@@ -16,13 +16,13 @@ export default {
     <div class="container m-lg-3">
       <h1 class="mb-2 h6">Állatmenhely</h1>
       <h2 class="mb-3">Fogadj örökbe egy állatot!</h2>
-      <p class="lead mb-3">Böngéssz a rendelkezésre állataink közül, és találd meg az ideális családtagod!</p>
+      <p class="lead mb-3">Böngéssz a menhelyünkön található állataink közül, és találd meg az új ideális családtagod!</p>
       <RouterLink to="/adoption" class="btn btn-light btn-lg">Kezdjük az örökbefogadást</RouterLink>
     </div>
   </section>
 
   <!-- Problem Section -->
-  <section class="py-5 pt-5">
+  <section class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 mb-4 mb-lg-0">
@@ -32,7 +32,7 @@ export default {
           <p>Az örökbefogadás nem csak az állatnak segít, hanem az egész családodnak is boldogabbá teszi az életet.</p>
         </div>
         <div class="col-lg-6">
-          <img src="@/imgs/macska.jpg" alt="Szomorú állat" class="img-fluid rounded">
+          <img src="@/imgs/menhelykutyajpg.jpg" alt="Szomorú állat" class="img-fluid rounded">
         </div>
       </div>
     </div>
@@ -342,5 +342,18 @@ export default {
 .card-text {
   flex: 1;
   margin-bottom: 1rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+.carousel-control-prev {
+  left: -120px;
+}
+
+.carousel-control-next {
+  right: -120px;
 }
 </style>
