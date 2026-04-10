@@ -32,16 +32,14 @@ const router = createRouter({
             meta:{
                 title: "Kutyák"
             },
-            children: [
-                {
-                    path: 'details/:id',
-                    name: 'dog-details',
-                    component: () => import('@/views/public/DogDetailsView.vue'),
-                    meta:{
-                        title: "Kutya részletei"
-                    },
-                },
-            ],
+        },
+        {
+            path: '/dogs/:id',
+            name: 'dog-details',
+            component: () => import('@/views/public/DogDetailsView.vue'),
+            meta:{
+                title: "Kutya részletei"
+            },
         },
         {
             path: '/cats',
@@ -50,16 +48,14 @@ const router = createRouter({
             meta:{
                 title: "Macskák"
             },
-            children: [
-                {
-                    path: 'details/:id',
-                    name: 'cat-details',
-                    component: () => import('@/views/public/CatDetailsView.vue'),
-                    meta:{
-                        title: "Macska részletei"
-                    },
-                },
-            ],
+        },
+        {
+            path: '/cats/:id',
+            name: 'cat-details',
+            component: () => import('@/views/public/CatDetailsView.vue'),
+            meta:{
+                title: "Macska részletei"
+            },
         },
         {
             path: '/contact',

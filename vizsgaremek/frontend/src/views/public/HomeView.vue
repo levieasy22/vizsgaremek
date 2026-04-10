@@ -24,7 +24,7 @@ export default {
   <!-- Problem Section -->
   <section class="py-5">
     <div class="container">
-      <div class="row">
+      <div class="row align-items-center">
         <div class="col-lg-6 mb-4 mb-lg-0">
           <h2 class="mb-4">Az állatok nehéz helyzete</h2>
           <p class="mb-3">Minden nap rengeteg állat kerül az utcára, azért mert nincs otthonuk. Sokan közülük betegek, traumatizáltak, és szükségük van szeretetre és gondoskodásra.</p>
