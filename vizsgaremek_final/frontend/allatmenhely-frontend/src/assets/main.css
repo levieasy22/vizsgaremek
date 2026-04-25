@@ -1,0 +1,133 @@
+:root {
+    --menhely-primary:   #F5E9DC;
+    --menhely-secondary: #574A38;
+    --menhely-accent:    #F5E9DC;
+    --menhely-dark:      #000000;
+    --menhely-light:     #FFFFFF;
+    --menhely-text:      #000000;
+    --menhely-muted:     #8A8A8A;
+}
+
+/* ── ALAP STÍLUSOK ──────────────────────────────────────────────── */
+body {
+    font-family: Inter, sans-serif;
+    color: var(--menhely-text);
+    background-color: #ffffff;
+}
+
+/* ── BOOTSTRAP FELÜLÍRÁSOK ──────────────────────────────────────── */
+.btn-primary {
+    background-color: var(--menhely-primary);
+    border-color: var(--menhely-primary);
+    color: #000000;
+}
+
+.btn-primary:hover {
+    background-color: var(--menhely-dark);
+    border-color: var(--menhely-dark);
+}
+
+.text-primary {
+    color: var(--menhely-primary) !important;
+}
+
+.text-secondary {
+    color: var(--menhely-secondary) !important;
+}
+
+.bg-primary {
+    background-color: var(--menhely-primary) !important;
+}
+
+.bg-secondary {
+    background-color: var(--menhely-secondary) !important;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+/* ── KÁRTYA HOVER EFFEKT ────────────────────────────────────────── */
+.animal-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.animal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ── LOADING SPINNER ────────────────────────────────────────────── */
+.loading-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+/* ── HERO SZEKCIÓ ───────────────────────────────────────────────── */
+.hero-section {
+    background: linear-gradient(135deg, var(--menhely-primary) 0%, var(--menhely-dark) 100%);
+    color: white;
+    padding: 100px 0;
+}
+
+/* ── ADMIN SIDEBAR ──────────────────────────────────────────────── */
+.admin-sidebar {
+    min-height: 100vh;
+    width: 260px;
+    background-color: #1a1a2e;
+    flex-shrink: 0;
+}
+
+.admin-sidebar .nav-link {
+    color: #a0a0b0;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 2px 8px;
+    transition: all 0.2s ease;
+}
+
+.admin-sidebar .nav-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-sidebar .nav-link.router-link-active {
+    color: #ffffff;
+    background-color: var(--menhely-primary);
+}
+
+/* ── BADGE STÍLUSOK ─────────────────────────────────────────────── */
+.badge-elerheto    { background-color: #4CAF50; }
+.badge-foglalas    { background-color: #FF9800; }
+.badge-orokbefogadva { background-color: #9E9E9E; }
+.badge-fuggoben    { background-color: #2196F3; }
+.badge-elfogadva   { background-color: #4CAF50; }
+.badge-elutasitva  { background-color: #F44336; }
+.badge-megerositett { background-color: #4CAF50; }
+.badge-lemondott   { background-color: #F44336; }
+
+/* ── ÁLLAT DETAIL OLDAL ─────────────────────────────────────────── */
+.animal-thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.animal-thumbnail.active {
+    border-color: var(--menhely-primary);
+}
+
+.animal-main-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+}
