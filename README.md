@@ -41,6 +41,8 @@ npm --version
 
 ## Backend telepítése
 
+1. Működéshez szükséges a composer telepítése.
+
 ### 1. lépés – Mappa megnyitása
 
 Navigáljon a backend mappába:
@@ -113,9 +115,11 @@ php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
 
 ## Frontend telepítése
 
+1. Működéshez szükséges a node telepítése.
+
 ### 1. lépés – Mappa megnyitása
 
-Nyisson egy **új terminált** és navigálj a frontend mappába:
+Nyisson egy **új terminált** és navigáljon a frontend mappába:
 cd frontend\allatmenhely-frontend
 
 ### 2. lépés – Függőségek telepítése
