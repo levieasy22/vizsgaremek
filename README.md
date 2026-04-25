@@ -226,34 +226,38 @@ Az admin belépés után az /admin oldalra irányít automatikusan.
 
 ## Hibaelhárítás
 
+### Backend - installációkor: composer install parancs futtatásakor
+- The zip extension and unzip/7z commands are both missing, skipping. The php.ini used by your command-line PHP is C:\xampp\php\php.ini
+- C:\xampp\php\php.ini fájlt kell módosítani: kitörölni a ";" az alábbi helyeken, ha van: extension=zip extension_dir = "ext" extension=curl extension=fileinfo extension=gd extension=mbstring extension=openssl extension=pdo_mysql
+
 ### „SQLSTATE: Connection refused" hiba
-A XAMPP MySQL nem fut. Indítsa el a XAMPP vezérlőpultból.
+- A XAMPP MySQL nem fut. Indítsa el a XAMPP vezérlőpultból.
 
 ### „php artisan" parancs nem ismert
-A PHP nincs a PATH-ban. XAMPP esetén add hozzá:  
-C:\xampp\php a rendszer PATH változóhoz.
+- A PHP nincs a PATH-ban. XAMPP esetén add hozzá:  
+- C:\xampp\php a rendszer PATH változóhoz.
 
 ### „npm: command not found"
-A Node.js nincs telepítve vagy nincs a PATH-ban.  
-Telepítés után nyisson új terminált.
+- A Node.js nincs telepítve vagy nincs a PATH-ban.  
+- Telepítés után nyisson új terminált.
 
 ### „composer: command not found"
-A Composer nincs telepítve. Töltse le: https://getcomposer.org
+- A Composer nincs telepítve. Töltse le: https://getcomposer.org
 
 ### A képek nem jelennek meg
-Futtassa le: php artisan storage:link
+- Futtassa le: php artisan storage:link
 
 ### „CORS error" a böngészőkonzolban
-Ellenőrizze hogy a backend fut-e (http://localhost:8000)  
-Ellenőrizze a config/cors.php fájlban az allowed_origins értékét
+- Ellenőrizze hogy a backend fut-e (http://localhost:8000)  
+- Ellenőrizze a config/cors.php fájlban az allowed_origins értékét
 
 ### „Unauthenticated" hiba admin oldalakon
-Jelentkezzen be újra, a token lejárhatott
+- Jelentkezzen be újra, a token lejárhatott
 
 ### Adatbázis újratöltése (reset)
-php artisan migrate:fresh --seed
+- php artisan migrate:fresh --seed
 
-Ez törli és újra létrehozza az összes adatot!
+- Ez törli és újra létrehozza az összes adatot!
 
 ---
 
