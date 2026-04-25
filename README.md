@@ -1,7 +1,7 @@
 # Mancs Menhely – Telepítési és Indítási Útmutató
 
-Fejlesztők: Igli Levente, Müller Enikő, Lakner Máté
-Github felhasználóneveink: @levieasy22 @encimuller @laknermatee
+### Fejlesztők: Igli Levente, Müller Enikő, Lakner Máté
+### Github felhasználóneveink: @levieasy22 @encimuller @laknermatee
 **Technológia:** Laravel 11 (backend) + Vue 3 (frontend)
 
 ---
@@ -281,5 +281,5 @@ Ez törli és újra létrehozza az összes adatot!
 
 ---
 
-Reméljük a vizsgaremek munkánk elnyeri tetszésüket!
-Szívélyes üdvözlettel, Igli Levente, Lakner Máté és Müller Enikő
+## Reméljük a vizsgaremek munkánk elnyeri tetszésüket!
+### Szívélyes üdvözlettel, Igli Levente, Lakner Máté és Müller Enikő
