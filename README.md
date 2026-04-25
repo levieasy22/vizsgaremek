@@ -64,22 +64,22 @@ copy .env.example .env
 
 Nyissa meg a .env fájlt és állítsa be az adatbázis adatokat:
 
-env
-APP_NAME=AllatmenhelyAPI
-APP_ENV=local
-APP_KEY=base64:nqehxNrX6Y5uXXGnu9R+e+vhLf+gRiYqJgjanoHlUAA=
-APP_DEBUG=true
-APP_URL=http://localhost:8000
+- env
+- APP_NAME=AllatmenhelyAPI
+- APP_ENV=local
+- APP_KEY=base64:nqehxNrX6Y5uXXGnu9R+e+vhLf+gRiYqJgjanoHlUAA=
+- APP_DEBUG=true
+- APP_URL=http://localhost:8000
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=allatmenhely
-DB_USERNAME=root
-DB_PASSWORD=
+- DB_CONNECTION=mysql
+- DB_HOST=127.0.0.1
+- DB_PORT=3306
+- DB_DATABASE=allatmenhely
+- DB_USERNAME=root
+- DB_PASSWORD=
 
-SANCTUM_STATEFUL_DOMAINS=localhost:5173
-SESSION_DOMAIN=localhost
+- SANCTUM_STATEFUL_DOMAINS=localhost:5173
+- SESSION_DOMAIN=localhost
 
 
 ### 5. lépés – Application key generálása
