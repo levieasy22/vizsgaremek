@@ -2,6 +2,7 @@
 
 ### Fejlesztők: Igli Levente, Müller Enikő, Lakner Máté
 ### Github felhasználóneveink: @levieasy22 @encimuller @laknermatee
+### Végleges projekt: vizsgaremek_final mappa
 **Technológia:** Laravel 11 (backend) + Vue 3 (frontend)
 
 ---
